@@ -1,5 +1,6 @@
-import './styles.css';
 import cartIcon from '../../assets/cart.svg';
+
+import './styles.css';
 
 export default function HeaderClient() {
   return (
@@ -16,6 +17,5 @@ export default function HeaderClient() {
         </div>
       </nav>
     </header>
-  )
-
+  );
 }
