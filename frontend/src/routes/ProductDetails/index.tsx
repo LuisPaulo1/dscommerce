@@ -13,8 +13,8 @@ export default function ProductDetails() {
       <section id="product-details-section" className="dsc-container">
         <ProductDetailsCard />
         <div className="dsc-btn-page-container">
-          <ButtonPrimary />
-          <ButtonInverse />
+          <ButtonPrimary name="Eletrônicos" />
+          <ButtonInverse name="Computadores" />
         </div>
       </section>  
     </main>
