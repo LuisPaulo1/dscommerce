@@ -14,7 +14,8 @@ const product: ProductDTO = {
   imgUrl: "https://source.unsplash.com/300x300/?computer",
   categories: [
     { id: 1, name: "Computadores" },
-    { id: 2, name: "Eletrônicos" }
+    { id: 2, name: "Eletrônicos" },
+    { id: 3, name: "Importados" }
   ]
 };
 
