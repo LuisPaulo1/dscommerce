@@ -6,7 +6,6 @@ import './styles.css';
 type Props = {
   product: ProductDTO;
 };
-
 export default function ProductDetailsCard({ product }: Props) {
   return (
     <div className="dsc-card dsc-mb20">
