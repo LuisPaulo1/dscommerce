@@ -32,3 +32,15 @@ export function increaseItem(productId: number) {
     cartRepository.save(cart)
   }
 }
+
+export function decreaseItem(productId: number) {
+  const cart = cartRepository.get()
+  const item = cart.items.find(p => p.productId === productId)
+  if (item) {
+    item.quantity--
+    if (item.quantity === 0) {
+      cart.items = cart.items.filter(p => p.productId !== productId)
+    }
+    cartRepository.save(cart)
+  }
+}

@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import { ProductDTO } from "models/product";
 import * as productService from '../../../services/product-service';
 import * as cartService from '../../../services/cart.service';
-
 import "./styles.css";
 
 export default function ProductDetails() {
