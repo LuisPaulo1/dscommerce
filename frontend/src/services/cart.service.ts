@@ -11,15 +11,24 @@ export function getCart(): OrderDTO {
 }
 
 export function addProduct(product: ProductDTO) {
-  const cart = getCart()
-  const index = cart.items.findIndex(p => p.productId === product.id)
-  if (index === -1) {
+  const cart = cartRepository.get()
+  const item = cart.items.find(p => p.productId === product.id)
+  if (!item) {
     const newItem = new OrderItemDTO(product.id, 1, product.name, product.price, product.imgUrl)
     cart.items.push(newItem)
-    saveCart(cart)
+    cartRepository.save(cart)
   } 
 }
 
-export function clearCart(){
+export function clearCart() {
   cartRepository.clear()
+}
+
+export function increaseItem(productId: number) {
+  const cart = cartRepository.get()
+  const item = cart.items.find(p => p.productId === productId)
+  if (item) {
+    item.quantity++
+    cartRepository.save(cart)
+  }
 }
