@@ -1,8 +1,19 @@
 import { BASE_URL } from "../utils/system";
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-export function findAll() {
-  return axios.get(`${BASE_URL}/products/?size=12`);
+export function findPageRequest(page: number, name: string, size = 12, sort = "name") {
+  const config : AxiosRequestConfig = {
+    baseURL: BASE_URL,
+    url: '/products',
+    method: 'GET',
+    params: {
+      page,
+      name,
+      size,
+      sort
+    }
+  }
+  return axios.request(config);
 }
 
 export function findById(id: number) {
