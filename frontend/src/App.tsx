@@ -4,7 +4,7 @@ import Catalog from './routes/ClientHome/Catalog';
 import ProductDetails from './routes/ClientHome/ProductDetails';
 import Cart from './routes/ClientHome/Cart';
 import { useState } from 'react';
-import { ContextCartCount } from 'utils/context-cart';
+import { ContextCartCount } from './utils/context-cart';
 
 export default function App() {
 

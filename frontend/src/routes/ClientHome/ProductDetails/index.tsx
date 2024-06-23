@@ -3,10 +3,11 @@ import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ProductDTO } from "models/product";
 import * as productService from '../../../services/product-service';
 import * as cartService from '../../../services/cart.service';
+import { ContextCartCount } from '../../../utils/context-cart';
 import "./styles.css";
 
 export default function ProductDetails() {
@@ -16,6 +17,8 @@ export default function ProductDetails() {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState<ProductDTO>();
+  
+  const {setContextCartCount} = useContext(ContextCartCount);
 
   useEffect(() => {
     productService.findById(Number(params.productId))
@@ -29,8 +32,9 @@ export default function ProductDetails() {
   function handleBuyClick() {
     if(product){
       cartService.addProduct(product);
+      setContextCartCount(cartService.getCart().items.length);
+      navigate('/cart');
     }
-    navigate('/cart');
   }
 
   return (
