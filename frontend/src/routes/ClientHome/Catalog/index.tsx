@@ -10,7 +10,6 @@ type QueryParams = {
   page: number;
   name: string;
 }
-
 export default function Catalog() {
 
   const [isLastPage, setIsLastPage] = useState(false);
@@ -26,8 +25,9 @@ export default function Catalog() {
     productService.findPageRequest(queryParams.page, queryParams.name)
     .then(response => {
       const nextPage = response.data.content;
+      const lastPage = response.data.last;
       setProducts([...products, ...nextPage]);
-      setIsLastPage(response.data.last);
+      setIsLastPage(lastPage);
     });
   }, [queryParams]);
 
