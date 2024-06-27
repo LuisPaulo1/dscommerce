@@ -1,4 +1,4 @@
-import * as cartService from '../../../services/cart.service';
+import * as cartService from '../../../services/cart-service';
 import { OrderDTO } from '../../../models/order';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
