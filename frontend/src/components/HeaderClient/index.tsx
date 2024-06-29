@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import CartIcon from '../../components/CartIcon';
+import * as authService from '../../services/auth-service';
+import iconAdmin from '../../assets/admin.svg';
 import './styles.css';
 
 export default function HeaderClient() {
+
+
   return (
     <header className="dsc-header-client">
       <nav className="dsc-container">
@@ -11,6 +15,14 @@ export default function HeaderClient() {
         </Link>
         <div className="dsc-navbar-right">
           <div className="dsc-menu-items-container">
+            {
+              authService.hasAnyRoles(['ROLE_ADMIN']) &&
+              <Link to="/admin">
+                <div className="dsc-menu-item">
+                  <img src={iconAdmin} alt="Admin" />
+                </div>
+              </Link>
+            }
             <Link to="/cart">
               <div className="dsc-menu-item">
                 <CartIcon />
