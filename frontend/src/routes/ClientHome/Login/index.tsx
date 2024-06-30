@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import * as authService from '../../../services/auth-service';
+import { ContextToken } from '../../../utils/context-token';
 import './styles.css';
 
 export default function Login() {
+
+  const { setContextTokenPayload } = useContext(ContextToken);
 
   const [formData, setFormData] = useState({
     username: '',
@@ -19,7 +22,7 @@ export default function Login() {
     authService.loginRequest(formData)
     .then(response => {
       authService.saveAccessToken(response.data.access_token);
-      
+      setContextTokenPayload(authService.getAccessTokenPayload());
     }).catch(error => {
       console.log('ERRO', error);
     });
