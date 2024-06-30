@@ -9,7 +9,6 @@ export function requestBackend(config: AxiosRequestConfig) {
       ...config.headers,
       Authorization: `Bearer ${authService.getAccessToken()}`
     } : config.headers;
-
   return axios({ ...config, baseURL: BASE_URL, headers });
 }
 
