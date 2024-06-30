@@ -1,9 +1,12 @@
 import { useContext, useState } from 'react';
 import * as authService from '../../../services/auth-service';
 import { ContextToken } from '../../../utils/context-token';
+import { useNavigate } from 'react-router-dom';
 import './styles.css';
 
 export default function Login() {
+
+  const navegate = useNavigate();
 
   const { setContextTokenPayload } = useContext(ContextToken);
 
@@ -20,12 +23,13 @@ export default function Login() {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     authService.loginRequest(formData)
-    .then(response => {
-      authService.saveAccessToken(response.data.access_token);
-      setContextTokenPayload(authService.getAccessTokenPayload());
-    }).catch(error => {
-      console.log('ERRO', error);
-    });
+      .then(response => {
+        authService.saveAccessToken(response.data.access_token);
+        setContextTokenPayload(authService.getAccessTokenPayload());
+        navegate('/');
+      }).catch(error => {
+        console.log('ERRO', error);
+      });
   }
 
   return (
