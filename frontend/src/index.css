@@ -5,6 +5,7 @@
   --dsc-color-bg-secondary: #ffe500;
   --dsc-color-bg-tertiary: #636363;
   --dsc-color-bg-quaternary: #0caf1d;
+  --dsc-color-bg-notification: #f00;
 
   --dsc-color-card-bg: #fff;
   --dsc-color-card-border: #d9d9d9;
@@ -86,11 +87,6 @@ header {
   padding: 0 20px;
 }
 
-.dsc-header-admin {
-  background-color: var(--dsc-color-bg-quaternary);
-  color: var(--dsc-color-font-tertiary);
-}
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -141,12 +137,14 @@ nav a {
   align-items: flex-end;
 }
 
-.dsc-logged-user p {
+.dsc-logged-user span {
   font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-.dsc-logged-user a {
-  font-weight: 700;
+.dsc-logged-user p {
+  font-size: 12px;
 }
 
 @media (min-width: 576px) {

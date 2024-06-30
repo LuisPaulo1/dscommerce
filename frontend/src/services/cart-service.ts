@@ -10,6 +10,11 @@ export function getCart(): OrderDTO {
   return cartRepository.get()
 }
 
+export function getCartCount(): number {  
+  const cart = cartRepository.get()
+  return cart.items.length
+}
+
 export function addProduct(product: ProductDTO) {
   const cart = cartRepository.get()
   const item = cart.items.find(p => p.productId === product.id)
