@@ -6,7 +6,7 @@ import './styles.css';
 
 export default function Login() {
 
-  const navegate = useNavigate();
+  const navigate = useNavigate();
 
   const { setContextTokenPayload } = useContext(ContextToken);
 
@@ -26,7 +26,7 @@ export default function Login() {
       .then(response => {
         authService.saveAccessToken(response.data.access_token);
         setContextTokenPayload(authService.getAccessTokenPayload());
-        navegate('/');
+        navigate('/');
       }).catch(error => {
         console.log('ERRO', error);
       });

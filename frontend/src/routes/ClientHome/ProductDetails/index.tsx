@@ -32,7 +32,7 @@ export default function ProductDetails() {
   function handleBuyClick() {
     if(product){
       cartService.addProduct(product);
-      setContextCartCount(cartService.getCart().items.length);
+      setContextCartCount(cartService.getCartCount());
       navigate('/cart');
     }
   }

@@ -8,6 +8,7 @@ import './styles.css';
 export default function Confirmation() {
 
   const params = useParams();
+  
   const [order, setOrder] = useState<OrderDTO>();
 
   useEffect(() => {
