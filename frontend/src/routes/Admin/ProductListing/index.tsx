@@ -2,7 +2,8 @@ import editIcon from '../../../assets/edit.svg';
 import deleteIcon from '../../../assets/delete.svg';
 import { useEffect, useState } from 'react';
 import * as productService from '../../../services/product-service';
-import { ProductDTO } from 'models/product';
+import { ProductDTO } from '../../../models/product';
+import SearchBar from '../../../components/SearchBar';
 import './styles.css';
 
 type QueryParams = {
@@ -30,21 +31,19 @@ export default function ProductListing() {
     });
   }, [queryParams]);
 
+  function handleSearch(searchText: string) {
+    setProducts([]);
+    setQueryParams({...queryParams, page: 0, name: searchText});
+  }
+
   return (
     <main>
       <section id="product-listing-section" className="dsc-container">
         <h2 className="dsc-section-title dsc-mb20">Cadastro de produtos</h2>
-
         <div className="dsc-btn-page-container dsc-mb20">
           <div className="dsc-btn dsc-btn-white">Novo</div>
         </div>
-
-        <form className="dsc-search-bar">
-          <button type="submit">🔎︎</button>
-          <input type="text" placeholder="Nome do produto" />
-          <button type="reset">🗙</button>
-        </form>
-
+        <SearchBar onSearch={handleSearch} />
         <table className="dsc-table dsc-mb20 dsc-mt20">
           <thead>
             <tr>
@@ -71,7 +70,6 @@ export default function ProductListing() {
             }       
           </tbody>
         </table>
-
         <div className="dsc-btn-next-page">Carregar mais</div>
       </section>
     </main>
