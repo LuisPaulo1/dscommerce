@@ -5,6 +5,7 @@ import * as productService from '../../../services/product-service';
 import { ProductDTO } from '../../../models/product';
 import SearchBar from '../../../components/SearchBar';
 import ButtonNextPage from '../../../components/ButtonNextPage';
+import DialogInfo from '../../../components/DialogInfo';
 import './styles.css';
 
 type QueryParams = {
@@ -82,6 +83,7 @@ export default function ProductListing() {
           </div>
         }
       </section>
+      <DialogInfo />
     </main>
   );
 }
