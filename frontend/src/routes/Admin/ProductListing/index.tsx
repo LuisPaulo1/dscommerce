@@ -14,6 +14,11 @@ type QueryParams = {
 }
 export default function ProductListing() {
 
+  const [dialogInfoData, setDialogInfoData] = useState({
+    visible: false,
+    message: "Operação com sucesso!"
+  });
+
   const [isLastPage, setIsLastPage] = useState(false);
 
   const [products, setProducts] = useState<ProductDTO[]>([]);
@@ -41,6 +46,10 @@ export default function ProductListing() {
   function handleNextPageClick() {
     setQueryParams({...queryParams, page: queryParams.page + 1});
   }
+
+  function handleDialogInfoClose() {
+    setDialogInfoData({...dialogInfoData, visible: false});
+  }  
 
   return (
     <main>
@@ -83,7 +92,13 @@ export default function ProductListing() {
           </div>
         }
       </section>
-      <DialogInfo />
+      {
+        dialogInfoData.visible &&
+        <DialogInfo 
+          message={dialogInfoData.message} 
+          onDialogClose={handleDialogInfoClose} 
+        />
+      }
     </main>
   );
 }
