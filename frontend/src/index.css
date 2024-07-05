@@ -374,17 +374,17 @@ nav a {
 }
 
 .dsc-dialog-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
   background-color: var(--dsc-color-card-bg);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .dsc-dialog-box h2 {
@@ -397,5 +397,9 @@ nav a {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 20px;  
+}
+
+.dsc-dialog-btn {
+  width: 100%;  
 }

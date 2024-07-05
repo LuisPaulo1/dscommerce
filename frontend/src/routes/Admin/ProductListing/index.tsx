@@ -21,6 +21,7 @@ export default function ProductListing() {
   });
 
   const [dialogConfirmationData, setDialogConfirmationData] = useState({
+    id: 0,
     visible: false,
     message: "Tem certeza?"
   });
@@ -57,9 +58,21 @@ export default function ProductListing() {
     setDialogInfoData({...dialogInfoData, visible: false});
   }  
 
-  function handleDialogConfirmationAnswer(answer: boolean) {
-    setDialogConfirmationData({...dialogConfirmationData, visible: false});
-    console.log(answer);
+  function handleDialogConfirmationAnswer(id: number, answer: boolean) {
+    if (answer) {
+      productService.deleteById(id)
+        .then(() => {
+          setProducts([]);
+          setQueryParams({ ...queryParams, page: 0 });
+        }).catch((e) => {
+          setDialogInfoData({ ...dialogInfoData, message: e.response.data.error, visible: true });
+        });
+    }
+    setDialogConfirmationData({ ...dialogConfirmationData, visible: false });
+  }
+
+  function handleDeleteClick(id: number) {
+    setDialogConfirmationData({...dialogConfirmationData, id, visible: true});
   }
 
   return (
@@ -90,7 +103,7 @@ export default function ProductListing() {
                   <td className="dsc-tb768">R$ {product.price}</td>
                   <td className="dsc-txt-left">{product.name}</td>
                   <td><img className="dsc-product-listing-btn" src={editIcon} alt="Editar" /></td>
-                  <td><img className="dsc-product-listing-btn" src={deleteIcon} alt="Deletar" /></td>
+                  <td><img className="dsc-product-listing-btn" src={deleteIcon} alt="Deletar" onClick={() => handleDeleteClick(product.id)} /></td>
                 </tr>
               ))
             }       
@@ -112,7 +125,8 @@ export default function ProductListing() {
       }
       {
         dialogConfirmationData.visible &&
-        <DialogConfirmation 
+        <DialogConfirmation
+          id={dialogConfirmationData.id} 
           message={dialogConfirmationData.message} 
           onDialogAnswer={handleDialogConfirmationAnswer} 
         />
