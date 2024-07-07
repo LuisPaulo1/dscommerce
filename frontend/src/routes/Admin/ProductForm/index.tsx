@@ -53,7 +53,9 @@ export default function ProductForm() {
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
-    setFormData(forms.update(formData, name, value));
+    const dataUpdated = forms.update(formData, name, value);
+    const dataValidated = forms.validate(dataUpdated, name);
+    setFormData(dataValidated);
   }
 
   return (
@@ -69,6 +71,7 @@ export default function ProductForm() {
                   className="dsc-form-control"
                   onChange={handleInputChange}
                 />
+                <div className="dsc-form-error">{formData.name.message}</div>
               </div>
               <div>
               <FormInput
@@ -76,6 +79,7 @@ export default function ProductForm() {
                   className="dsc-form-control"
                   onChange={handleInputChange}
                 />
+                <div className="dsc-form-error">{formData.price.message}</div>
               </div>
               <div>
               <FormInput
@@ -83,6 +87,7 @@ export default function ProductForm() {
                   className="dsc-form-control"
                   onChange={handleInputChange}
                 />
+                <div className="dsc-form-error">{formData.imgUrl.message}</div>
               </div>           
             </div>
             <div className="dsc-product-form-buttons">
