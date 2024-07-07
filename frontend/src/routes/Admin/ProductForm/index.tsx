@@ -1,9 +1,9 @@
+import './styles.css';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import FormInput from '../../../components/FormInput';
-import * as forms from '../../../utils/forms';
-import * as productService from '../../../services/product-service';
-import './styles.css';
+import FormInput from 'components/FormInput';
+import * as forms from 'utils/forms';
+import * as productService from 'services/product-service';
 
 export default function ProductForm() {
 

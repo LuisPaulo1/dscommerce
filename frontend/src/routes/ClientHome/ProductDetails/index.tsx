@@ -1,14 +1,14 @@
+import "./styles.css";
 import { useNavigate, useParams } from "react-router-dom";
-import ButtonInverse from "../../../components/ButtonInverse";
-import ButtonPrimary from "../../../components/ButtonPrimary";
-import ProductDetailsCard from "../../../components/ProductDetailsCard";
+import ButtonInverse from "components/ButtonInverse";
+import ButtonPrimary from "components/ButtonPrimary";
+import ProductDetailsCard from "components/ProductDetailsCard";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { ProductDTO } from "models/product";
-import * as productService from '../../../services/product-service';
-import * as cartService from '../../../services/cart-service';
-import { ContextCartCount } from '../../../utils/context-cart';
-import "./styles.css";
+import * as productService from 'services/product-service';
+import * as cartService from 'services/cart-service';
+import { ContextCartCount } from 'utils/context-cart';
 
 export default function ProductDetails() {
 

@@ -1,9 +1,9 @@
 import { AxiosRequestConfig } from "axios";
 import { AccessTokenPayloadDTO, CredentialsDTO, RoleEnum } from "models/auth";
 import QueryString from "qs";
-import { requestBackend } from "../utils/request";
-import { CLIENT_ID, CLIENT_SECRET } from "../utils/system";
-import * as accessTokenRepository from "../localstorage/access-token-repository";
+import { requestBackend } from "utils/request";
+import { CLIENT_ID, CLIENT_SECRET } from "utils/system";
+import * as accessTokenRepository from "localstorage/access-token-repository";
 import jwtDecode from "jwt-decode";
 
 export function loginRequest(loginData: CredentialsDTO) {

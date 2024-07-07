@@ -1,15 +1,15 @@
-import editIcon from '../../../assets/edit.svg';
-import deleteIcon from '../../../assets/delete.svg';
-import { useEffect, useState } from 'react';
-import * as productService from '../../../services/product-service';
-import { ProductDTO } from '../../../models/product';
-import SearchBar from '../../../components/SearchBar';
-import ButtonNextPage from '../../../components/ButtonNextPage';
-import DialogInfo from '../../../components/DialogInfo';
-import DialogConfirmation from '../../../components/DialogConfirmation';
-import ButtonInverse from '../../../components/ButtonInverse';
-import { useNavigate } from 'react-router-dom';
 import './styles.css';
+import editIcon from 'assets/edit.svg';
+import deleteIcon from 'assets/delete.svg';
+import { useEffect, useState } from 'react';
+import * as productService from 'services/product-service';
+import { ProductDTO } from 'models/product';
+import SearchBar from 'components/SearchBar';
+import ButtonNextPage from 'components/ButtonNextPage';
+import DialogInfo from 'components/DialogInfo';
+import DialogConfirmation from 'components/DialogConfirmation';
+import ButtonInverse from 'components/ButtonInverse';
+import { useNavigate } from 'react-router-dom';
 
 type QueryParams = {
   page: number;

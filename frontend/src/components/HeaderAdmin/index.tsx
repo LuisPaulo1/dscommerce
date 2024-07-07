@@ -1,8 +1,8 @@
-import LoggedUser from '../../components/LoggedUser';
-import homeIcon from '../../assets/home.svg';
-import productsIcon from '../../assets/home.svg';
-import { NavLink } from 'react-router-dom';
 import './styles.css';
+import LoggedUser from 'components/LoggedUser';
+import homeIcon from 'assets/home.svg';
+import productsIcon from 'assets/home.svg';
+import { NavLink } from 'react-router-dom';
 
 export default function HeaderAdmin() {
   return (

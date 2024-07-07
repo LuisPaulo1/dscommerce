@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
-import * as authService from '../../../services/auth-service';
-import * as forms from '../../../utils/forms';
-import { ContextToken } from '../../../utils/context-token';
-import { useNavigate } from 'react-router-dom';
-import FormInput from '../../../components/FormInput';
 import './styles.css';
+import { useContext, useState } from 'react';
+import * as authService from 'services/auth-service';
+import * as forms from 'utils/forms';
+import { ContextToken } from 'utils/context-token';
+import { useNavigate } from 'react-router-dom';
+import FormInput from 'components/FormInput';
 
 export default function Login() {
 

@@ -1,5 +1,5 @@
-import ButtonInverse from "../../components/ButtonInverse";
-import ButtonPrimary from "../../components/ButtonPrimary";
+import ButtonInverse from "components/ButtonInverse";
+import ButtonPrimary from "components/ButtonPrimary";
 
 type Props = {
   id: number;

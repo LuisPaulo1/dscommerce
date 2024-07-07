@@ -1,23 +1,23 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import ClientHome from './routes/ClientHome';
-import Catalog from './routes/ClientHome/Catalog';
-import ProductDetails from './routes/ClientHome/ProductDetails';
-import Cart from './routes/ClientHome/Cart';
+import ClientHome from 'routes/ClientHome';
+import Catalog from 'routes/ClientHome/Catalog';
+import ProductDetails from 'routes/ClientHome/ProductDetails';
+import Cart from 'routes/ClientHome/Cart';
 import { useEffect, useState } from 'react';
-import { ContextCartCount } from './utils/context-cart';
-import Login from './routes/ClientHome/Login';
-import Admin from './routes/Admin';
-import AdminHome from './routes/Admin/AdminHome';
+import { ContextCartCount } from 'utils/context-cart';
+import Login from 'routes/ClientHome/Login';
+import Admin from 'routes/Admin';
+import AdminHome from 'routes/Admin/AdminHome';
 import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
-import { history } from './utils/history';
-import { PrivateRoute } from './components/PrivateRoute';
-import { AccessTokenPayloadDTO } from './models/auth';
-import { ContextToken } from './utils/context-token';
-import * as authService from './services/auth-service';
-import * as cartService from './services/cart-service';
-import Confirmation from './routes/ClientHome/Confirmation';
-import ProductListing from './routes/Admin/ProductListing';
-import ProductForm from './routes/Admin/ProductForm';
+import { history } from 'utils/history';
+import { PrivateRoute } from 'components/PrivateRoute';
+import { AccessTokenPayloadDTO } from 'models/auth';
+import { ContextToken } from 'utils/context-token';
+import * as authService from 'services/auth-service';
+import * as cartService from 'services/cart-service';
+import Confirmation from 'routes/ClientHome/Confirmation';
+import ProductListing from 'routes/Admin/ProductListing';
+import ProductForm from 'routes/Admin/ProductForm';
 
 export default function App() {
 
