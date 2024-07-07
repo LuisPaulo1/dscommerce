@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import * as authService from '../../../services/auth-service';
 import { ContextToken } from '../../../utils/context-token';
 import { useNavigate } from 'react-router-dom';
+import FormInput from '../../../components/FormInput';
 import './styles.css';
 
 export default function Login() {
@@ -56,23 +57,17 @@ export default function Login() {
             <h2>Login</h2>
             <div className="dsc-form-controls-container">
               <div>
-                <input
-                  name="username"
-                  value={formData.username.value}
+                <FormInput
+                  { ...formData.username }                  
                   className="dsc-form-control"
-                  type="text"
-                  placeholder="Email"
                   onChange={handleInputChange}
                 />
                 <div className="dsc-form-error"></div>
               </div>
               <div>
-                <input
-                  name="password"
-                  value={formData.password.value}
+                <FormInput
+                  { ...formData.password }
                   className="dsc-form-control"
-                  type="password"
-                  placeholder="Senha"
                   onChange={handleInputChange}
                 />
               </div>
