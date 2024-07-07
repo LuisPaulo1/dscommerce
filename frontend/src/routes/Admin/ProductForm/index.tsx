@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import FormInput from 'components/FormInput';
 import * as forms from 'utils/forms';
 import * as productService from 'services/product-service';
+import FormTextArea from 'components/FormTextArea';
 
 export default function ProductForm() {
 
@@ -40,6 +41,17 @@ export default function ProductForm() {
       name: "imgUrl",
       type: "text",
       placeholder: "Imagem",
+    },
+    description: {
+      value: "",
+      id: "description",
+      name: "description",
+      type: "text",
+      placeholder: "Descrição",
+      validation: function (value: string) {
+        return /^.{10,}$/.test(value);
+      },
+      message: "A descrição deve ter pelo menos 10 caracteres"
     }
   })
 
@@ -74,8 +86,8 @@ export default function ProductForm() {
             <h2>Dados do produto</h2>
             <div className="dsc-form-controls-container">
               <div>
-              <FormInput
-                  { ...formData.name }                  
+                <FormInput
+                  {...formData.name}
                   className="dsc-form-control"
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
@@ -83,8 +95,8 @@ export default function ProductForm() {
                 <div className="dsc-form-error">{formData.name.message}</div>
               </div>
               <div>
-              <FormInput
-                  { ...formData.price }                  
+                <FormInput
+                  {...formData.price}
                   className="dsc-form-control"
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
@@ -92,14 +104,23 @@ export default function ProductForm() {
                 <div className="dsc-form-error">{formData.price.message}</div>
               </div>
               <div>
-              <FormInput
-                  { ...formData.imgUrl }                  
+                <FormInput
+                  {...formData.imgUrl}
                   className="dsc-form-control"
                   onTurnDirty={handleTurnDirty}
                   onChange={handleInputChange}
                 />
                 <div className="dsc-form-error">{formData.imgUrl.message}</div>
-              </div>           
+              </div>
+              <div>
+                <FormTextArea
+                  {...formData.description}
+                  className="dsc-form-control dsc-textarea"
+                  onTurnDirty={handleTurnDirty}
+                  onChange={handleInputChange}
+                />
+                <div className="dsc-form-error">{formData.description.message}</div>
+              </div>
             </div>
             <div className="dsc-product-form-buttons">
               <Link to="/admin/products">
