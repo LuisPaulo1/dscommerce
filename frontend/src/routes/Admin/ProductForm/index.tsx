@@ -1,10 +1,15 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import FormInput from 'components/FormInput';
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import FormInput from '../../../components/FormInput';
 import * as forms from '../../../utils/forms';
+import * as productService from '../../../services/product-service';
 import './styles.css';
 
 export default function ProductForm() {
+
+  const params = useParams();
+
+  const isEditing = params.productId !== 'create';
 
   const [formData, setFormData] = useState<any>({
     name: {
@@ -29,6 +34,17 @@ export default function ProductForm() {
       placeholder: "Imagem",
     }
   })
+
+  useEffect(() => {
+    if (isEditing) {
+      productService.findById(Number(params.productId))
+        .then(response => {
+          console.log(response.data);
+        }).catch(error => {
+          console.log('ERRO', error);
+        });
+    }
+  }, []);
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
