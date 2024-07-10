@@ -103,11 +103,16 @@ export default function ProductForm() {
     setFormData(newFormData);
   } 
 
+  function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
+    console.log(forms.toValues(formData));     
+  }
+
   return (
     <main>
       <section id="product-form-section" className="dsc-container">
         <div className="dsc-product-form-container">
-          <form className="dsc-card dsc-form">
+          <form className="dsc-card dsc-form" onSubmit={handleSubmit}>
             <h2>Dados do produto</h2>
             <div className="dsc-form-controls-container">
               <div>
