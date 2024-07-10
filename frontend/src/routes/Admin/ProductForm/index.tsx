@@ -112,13 +112,18 @@ export default function ProductForm() {
     if (forms.hasAnyInvalid(formDataValidated)) {
       setFormData(formDataValidated);
       return;
-    }    
-    const requestBody = forms.toValues(formData);
-    
+    }  
+
+    const requestBody = forms.toValues(formData);    
     if(isEditing) {
       requestBody.id = params.productId;
     }    
-    productService.updateRequest(requestBody)
+
+    const request = isEditing
+      ? productService.updateRequest(requestBody)
+      : productService.insertRequest(requestBody);
+    
+    request
       .then(() => {
         navigate("/admin/products")
       })    

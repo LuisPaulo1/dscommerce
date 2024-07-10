@@ -38,3 +38,13 @@ export function updateRequest(data: ProductDTO) {
   }
   return requestBackend(config);
 }
+
+export function insertRequest(data: ProductDTO) {
+  const config : AxiosRequestConfig = {
+    url: '/products',
+    method: 'POST',
+    withCredentials: true,
+    data
+  }
+  return requestBackend(config);
+}
