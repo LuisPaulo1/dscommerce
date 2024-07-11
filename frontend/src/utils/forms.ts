@@ -76,3 +76,13 @@ function validate(inputs: any, name: string) {
 function toDirty(inputs: any, name: string) {
   return { ...inputs, [name]: { ...inputs[name], dirty: 'true' } };
 }
+
+export function setBackendErrors(inputs: any, errors: any) {
+  const newInputs = { ...inputs };
+  errors.forEach((error: any) => {
+    newInputs[error.fieldName].message = error.message;
+    newInputs[error.fieldName].dirty = 'true';
+    newInputs[error.fieldName].invalid = 'true';
+  });
+  return newInputs;
+}
