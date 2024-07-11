@@ -1,5 +1,5 @@
-import { OrderDTO, OrderItemDTO } from "../models/order";
-import { CART_KEY } from "../utils/system";
+import { OrderDTO, OrderItemDTO } from "models/order";
+import { CART_KEY } from "utils/system";
 
 export function save(cart: OrderDTO) {
   const str = JSON.stringify(cart)

@@ -240,32 +240,41 @@ nav a {
   color: var(--dsc-color-font-placeholder);
 }
 
-.dsc-input-error {
+.dsc-form-control[data-invalid="true"][data-dirty="true"] {
   border: 1px solid var(--dsc-color-error);
+}
+
+.dsc-form-control[data-invalid="true"][data-dirty="true"] ~ div {
+  display: unset;
 }
 
 .dsc-form-error {
   color: var(--dsc-color-error);
   font-size: 12px;
   padding-left: 4px;
-}
-
-.dsc-select:invalid {
-  color: var(--dsc-color-font-placeholder);
-}
-
-.dsc-select option[disabled] {
   display: none;
 }
 
-.dsc-select option {
-  color: var(--dsc-color-font-primary);
+.dsc-form-global-error {
+  border: 1px solid var(--dsc-color-error);
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--dsc-color-error);
 }
 
 .dsc-textarea {
   resize: none;
   height: 128px;
   padding-top: 10px;
+}
+
+.dsc-form-select-container {
+  padding: unset;
+  height: unset;
 }
 
 @media (min-width: 576px) {
@@ -359,4 +368,47 @@ nav a {
   .dsc-table tbody {
     font-size: 16px;
   }
+}
+
+/*-----------------------------------------------------------------*/
+/* dialog styles */
+
+.dsc-dialog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dsc-dialog-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: var(--dsc-color-card-bg);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dsc-dialog-box h2 {
+  font-size: 20px;
+  color: var(--dsc-color-font-primary);
+  margin-bottom: 20px;
+}
+
+.dsc-dialog-btn-container { 
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;  
+}
+
+.dsc-dialog-btn {
+  width: 100%;  
 }

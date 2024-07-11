@@ -1,4 +1,4 @@
-import { AccessTokenPayloadDTO } from "../models/auth";
+import { AccessTokenPayloadDTO } from "models/auth";
 import { createContext } from "react";
 
 export type ContextTokenType = {

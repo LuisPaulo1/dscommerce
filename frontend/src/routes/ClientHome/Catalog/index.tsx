@@ -1,10 +1,10 @@
-import SearchBar from '../../../components/SearchBar';
-import CatalogCard from '../../../components/CatalogCard';
-import ButtonNextPage from '../../../components/ButtonNextPage';
+import './styles.css';
+import SearchBar from 'components/SearchBar';
+import CatalogCard from 'components/CatalogCard';
+import ButtonNextPage from 'components/ButtonNextPage';
 import { ProductDTO } from 'models/product';
 import { useEffect, useState } from 'react';
-import * as productService from '../../../services/product-service';
-import './styles.css';
+import * as productService from 'services/product-service';
 
 type QueryParams = {
   page: number;
@@ -54,7 +54,7 @@ export default function Catalog() {
         {
           !isLastPage &&
           <div onClick={handleNextPageClick}>
-            <ButtonNextPage />
+            <ButtonNextPage onNextPage={handleNextPageClick} />
           </div>
         }
       </section>

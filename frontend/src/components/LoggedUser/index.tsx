@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import * as authService from '../../services/auth-service';
+import * as authService from 'services/auth-service';
 import { useContext } from 'react';
-import { ContextToken } from '../../utils/context-token';
+import { ContextToken } from 'utils/context-token';
 
 export default function LoggedUser() {
 

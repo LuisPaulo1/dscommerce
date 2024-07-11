@@ -1,9 +1,9 @@
+import './styles.css';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { OrderDTO } from 'models/order';
-import * as orderService from '../../../services/order-service';
+import * as orderService from 'services/order-service';
 import { Link } from 'react-router-dom';
-import './styles.css';
 
 export default function Confirmation() {
 

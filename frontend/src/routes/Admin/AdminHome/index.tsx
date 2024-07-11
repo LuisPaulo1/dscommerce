@@ -1,7 +1,7 @@
+import './styles.css'
 import { userDTO } from 'models/user';
 import { useEffect, useState } from 'react';
-import * as userService from '../../../services/user-service';
-import './styles.css'
+import * as userService from 'services/user-service';
 
 export default function AdminHome() {
 
